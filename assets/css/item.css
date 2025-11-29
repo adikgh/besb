@@ -1,0 +1,90 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+.itc_lg{
+   position: relative;
+   width: 100%;
+}
+.itc_lgi{
+   padding: 40px 0;
+   border-top: 1px solid var(--gr4);
+   cursor: pointer;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.itc_lgi:hover h4{
+   text-decoration: underline;
+}
+
+.itc_lgi i{
+   font-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+.itc_ltv{
+   position: relative;
+   width: 100%;
+   border-top: 1px solid var(--gr4);
+}
+.itc_ltv2{
+   border-top: 0;
+}
+
+.itc_ltv .head_c{
+   padding-top: 40px;
+   padding-bottom: 32px;
+}
+
+.item{
+   width: 225px;
+}
+.item:after{
+   display: none;
+}
+.item_c{
+   padding-top: 0;
+}
+
+.item_con{
+   padding-top: 8px;
+}
+
+
+
+
+.mySwiper_5 .item{
+   width: 160px;
+   min-height: 160px;
+}
+
+.mySwiper_2 .item{
+   width: calc(25% - 55px);
+}
