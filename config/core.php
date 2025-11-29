@@ -42,13 +42,13 @@
 
             if (mysqli_num_rows($user)) {
                $user_data = mysqli_fetch_assoc($user);
-               if ($user_ps == $user_data['password2']) {
+               if ($user_ps == $user_data['password']) {
                   self::$user_ph = $user_ph;
                   self::$user_data = $user_data;
                } else $this->user_unset();
             } elseif (mysqli_num_rows($user2)) { 
                $user_data = mysqli_fetch_assoc($user2);
-               if ($user_ps == $user_data['password2']) {
+               if ($user_ps == $user_data['password']) {
                   self::$user_pm = $user_pm;
                   self::$user_data = $user_data;
                } else $this->user_unset();
