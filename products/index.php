@@ -74,11 +74,6 @@
 						<? endwhile ?>
 					<? endif ?>
 
-					<!-- <a class="ph_cat_i" href="/products/">
-						<div class="ph_cat_in">Показать все</div>
-						<div class="ph_cat_img"><i class="fal fa-long-arrow-right"></i></div>
-					</a> -->
-
 				</div>
 			</div>
 

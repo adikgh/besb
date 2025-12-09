@@ -62,7 +62,7 @@
 		// catalog
 		public static function pr_catalog($id) {
 			$sql = db::query("select * from product_catalog where id = '$id'");
-			return mysqli_fetch_array($sql);
+			if (mysqli_num_rows($sql)) return mysqli_fetch_array($sql); else return 0;
 		}
 		public static function pr_catalog_name($id, $l) {
 			$sql = db::query("select * from product_catalog where id = '$id'");

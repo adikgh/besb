@@ -766,6 +766,7 @@ span.multis_i::after{display:none}
    height: 100%;
    display: block;
    box-sizing: border-box;
+   background-color: var(--gr1);
    background-size: auto 100%;
    background-position: center center;
    background-repeat: no-repeat;

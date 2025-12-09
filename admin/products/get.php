@@ -124,3 +124,30 @@
 
       exit();
 	}
+
+
+
+
+
+
+
+
+
+
+
+	   // pr_upd
+	if(isset($_GET['pr_upd'])) {
+		$id = strip_tags($_POST['id']);
+      	$name = strip_tags($_POST['name']);
+		$catalog_id = strip_tags($_POST['catalog']);
+		$price = strip_tags($_POST['price']);
+		$img = strip_tags($_POST['img']);
+
+      	if ($name) $upd = db::query("UPDATE `product` SET `name_kz` = '$name', `name_ru` = '$name', `upd_dt` = '$datetime' WHERE id = '$id'");
+      	if ($catalog_id) $upd = db::query("UPDATE `product` SET `catalog_id` = '$catalog_id', `upd_dt` = '$datetime' WHERE id = '$id'");
+      	if ($price) $upd = db::query("UPDATE `product` SET `price` = '$price', `upd_dt` = '$datetime' WHERE id = '$id'");
+      	if ($img) $upd = db::query("UPDATE `product` SET `img` = '$img', `upd_dt` = '$datetime' WHERE id = '$id'");
+      
+		echo 'yes';
+		exit();
+	}

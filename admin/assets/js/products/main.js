@@ -4,6 +4,68 @@ $(document).ready(function() {
 
 
 
+
+
+		// upd product
+	$('.pr_upd_pop').click(function(){
+		$('.pr_upd_block').addClass('pop_bl_act');
+		$('#html').addClass('ovr_h');
+		btn = $(this)
+		$.ajax({
+			url: "/admin/products/upd_item.php?upd",
+			type: "POST",
+			dataType: "html",
+			data: ({ id: btn.attr('data-id'), }),
+			success: function(data){
+				$('.pr_upd_block .pop_bl_cl').html(data);
+			},
+			beforeSend: function(){ },
+			error: function(data){ }
+		})
+	})
+	$('.pr_upd_back').click(function(){
+		$('.pr_upd_block').removeClass('pop_bl_act');
+		$('#html').removeClass('ovr_h');
+		$('.pr_upd_block .pop_bl_cl').html('');
+	})
+
+
+	$('html').on('click', '.pr_upd_img_btn', function(){ $(this).siblings('.pr_upd_img').click() })
+
+
+	$('html').on('click', '.pr_upd', function() {
+		if ($('.pr_upd_name').val().length >= $('.pr_upd_name').data('length')) {
+			if ($('.pr_upd_name').val().length >= $('.pr_upd_name').data('length')) mess('Введите свой данный')
+		} else {
+			$.ajax({
+				url: "/admin/products/get.php?pr_upd",
+				type: "POST",
+				dataType: "html",
+				data: ({
+					id: $('.pr_upd').data('id'),
+					name: $('.pr_upd_name').attr('data-val'), catalog: $('.pr_upd_catalog').attr('data-val'),
+					price: $('.pr_upd_price').attr('data-val'), img: $('.pr_upd_img').attr('data-val'),
+				}),
+				success: function(data){
+					if (data == 'yes') {
+						mess('Успешно')
+						setTimeout(function() { location.reload(); }, 500);
+					} else mess('Ошибка!'); console.log(data);
+				},
+				beforeSend: function(){ mess('Отправка..') },
+				error: function(data){ }
+			})
+		}
+	})
+
+
+
+
+
+
+
+
+
 	// search
 	$('.product_search').on('input', function () {
 		// $.ajax({

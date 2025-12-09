@@ -64,10 +64,8 @@
 								<td class="td_img">Фото</td>
 								<td class="td_br"></td>
 								<td class="td_name">Наименование</td>
-								<td class="td_other">Артикул</td>
 								<td class="td_other">Категория</td>
 								<td class="td_other">Цена продажи</td>
-								<!-- <td class="td_other">Количество</td> -->
 								<td class="uc_uh_cn"></td>
 							</tr>
 						</thead>
@@ -84,45 +82,31 @@
 										</div>
 									</td>
 									<td class="td_img">
-										<div class="uc_ui_img lazy_img" data-src="/assets/uploads/products/<?=$pr_d['img']?>">
+										<div class="uc_ui_img lazy_img pr_upd_pop" data-src="/assets/uploads/products/<?=$pr_d['img']?>" data-id="<?=$pr_d['id']?>">
 											<? if ($pr_d['img'] == null): ?> <i class="fal fa-box"></i> <? endif ?>
 										</div>
 									</td>
 									<td class="td_br"></td>
-									<td class="td_name">
-										<a class="" href="/admin/products/item/?id=<?=$pr_d['id']?>">
+									<td class="td_name ">
+										<div class="pr_upd_pop" data-id="<?=$pr_d['id']?>">
 											<div class="uc_ui_name"><?=$pr_d['name_ru']?></div>
-										</a>
-									</td>
-									<td class="td_other">
-										<div class="uc_ui_cont">
-											<div><?=product::product_article($pr_d['id'])?></div>
-											<? if ($pr_d['brand_id'] && $gh): ?> <div><?=(product::pr_brand($pr_d['brand_id']))['name']?></div> <? endif ?>
 										</div>
 									</td>
 									<td class="td_other"><div class="uc_uin_other"><? if ($pr_d['catalog_id']): ?> <div><?=product::pr_catalog_name($pr_d['catalog_id'], $lang)?></div> <? endif ?></div></td>
 									<td class="td_other"><div class="uc_uin_other"><?=$pr_d['price']?></div></td>
-									<!-- <td class="td_other"><div class="uc_uin_other " product_quantity_add_pop data-id="<?=$pr_d['id']?>"><?=product::product_quantity($pr_d['id'])?> шт</div></td> -->
 									<td class="">
 										<div class="uc_uib">
 											<div class="uc_uibo"><i class="fal fa-ellipsis-v"></i></div>
 											<div class="menu_c uc_uibs">
-												<a class="menu_ci" target="_blank" href="/products/item/?id=<?=$pr_d['id']?>">
-													<div class="menu_cin"><i class="fal fa-external-link"></i></div>
-													<div class="menu_cih">Открыть товар</div>
-												</a>
+												<div class="menu_ci pr_upd_pop" data-id="<?=$pr_d['id']?>">
+													<div class="menu_cin"><i class="fal fa-pen"></i></div>
+													<div class="menu_cih">Изменить данный</div>
+												</div>
 												<div class="menu_ci product2_add_pop" data-id="<?=$pr_d['id']?>">
 													<div class="menu_cin"><i class="fal fa-clone"></i></div>
 													<div class="menu_cih">Дублировать товар</div>
 												</div>
-												<!-- <div class="menu_ci " data-id="<?=$pr_d['id']?>">
-													<div class="menu_cin"><i class="fal fa-handshake"></i></div>
-													<div class="menu_cih">Выставить на продажу</div>
-												</div> -->
-												<!-- <div class="menu_ci " data-id="<?=$pr_d['id']?>">
-													<div class="menu_cin"><i class="fal fa-archive"></i></div>
-													<div class="menu_cih">Архивировать товар</div>
-												</div> -->
+												
 												<div class="menu_ci uc_uib_del pr_btn_delete" data-title2="Удалить товар" data-id="<?=$pr_d['id']?>">
 													<div class="menu_cin"><i class="fal fa-trash-alt"></i></div>
 													<div class="menu_cih">Удалить товар</div>
@@ -164,4 +148,82 @@
 
 <? include "../block/footer.php"; ?>
 
-	<? include "pop_add.php"; ?>
+
+
+   <!-- upd product -->
+	<div class="pop_bl pop_bl2 pr_upd_block">
+      <div class="pop_bl_a pr_upd_back"></div>
+      <div class="pop_bl_c">
+         <div class="head_c">
+            <h4>Тағамды өзгерту</h4>
+            <div class="btn btn_dd pr_upd_back"><i class="fal fa-times"></i></div>
+         </div>
+         <div class="pop_bl_cl lazy_c"></div>
+      </div>
+   </div>   
+   
+   
+   
+   <!--  -->
+   <div class="pop_bl pop_bl2 product_add_block">
+      <div class="pop_bl_a product_add_back"></div>
+      <div class="pop_bl_c">
+         <div class="head_c">
+            <h4>Тағам қосу</h4>
+            <div class="btn btn_dd product_add_back"><i class="fal fa-times"></i></div>
+         </div>
+         <div class="pop_bl_cl">
+            <div class="form_c">
+               <div class="form_im">
+                  <div class="form_span">Наименование товара:</div>
+                  <input type="text" class="form_im_txt pr_name" placeholder="Введите наименование" data-lenght="1">
+                  <i class="fal fa-text form_icon"></i>
+               </div>
+               <div class="form_im">
+                  <div class="form_span">Цена продажи:</div>
+                  <input type="tel" class="form_im_txt fr_price pr_price" placeholder="0" data-lenght="1">
+                  <i class="fal fa-tenge form_icon"></i>
+               </div>
+               <div class="form_im form_sel">
+                  <div class="form_span">Категория товара:</div>
+                  <i class="fal fa-inventory form_icon"></i>
+                  <div class="form_im_txt sel_clc pr_catalog" data-val="">Выберите категорию</div>
+                  <i class="fal fa-caret-down form_icon_sel"></i>
+                  <div class="form_im_sel sel_clc_i">
+                     <? $catalog = db::query("select * from product_catalog"); ?>
+                     <? while ($catalog_d = mysqli_fetch_assoc($catalog)): ?>
+                        <div class="form_im_seli" data-val="<?=$catalog_d['id']?>"><?=$catalog_d['name_ru']?></div>
+                     <? endwhile ?>
+                  </div>
+               </div>
+            </div>
+
+            <div class="form_c">
+               <div class="form_im">
+                  <input type="file" class="file dsp_n product_img pr_img" accept=".png, .jpeg, .jpg">
+                  <div class="form_im_img lazy_img pr_img_add" data-txt="Обновить изображение">Выберите с устройства</div>
+               </div>
+            </div>
+
+            <div class="form_c">
+               <div class="form_im">
+                  <div class="btn product_add"><span>Добавить</span></div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+
+
+   <!--  -->
+   <div class="pop_bl pop_bl2 product2_add_block">
+      <div class="pop_bl_a product2_add_back"></div>
+      <div class="pop_bl_c">
+         <div class="head_c">
+            <h4>Тағамды көшіп қою</h4>
+            <div class="btn btn_dd product2_add_back"><i class="fal fa-times"></i></div>
+         </div>
+         <div class="pop_bl_cl"></div>
+      </div>
+   </div>

@@ -5,12 +5,8 @@
 				<a class="alogo" href="/">Admin</a>
 				<div class="ahead">
 					<div class="ahead_l">
-						<? if ($site_set['search'] == true): ?>
-							<div class="aserach">
-								<input type="text" class="form_im_txt" placeholder="Поиск что угодно?">
-								<i class="fal fa-search form_icon"></i>
-							</div>
-						<? endif ?>
+						<div class="">Besbarmak</div>
+						<div class="">Kuimak</div>
 					</div>
 					<div class="ahead_r">
 						<div class="ahead_rn">
@@ -33,7 +29,7 @@
 									<div class=""><?=$user['name']?> <?=($user['surname']?substr($user['surname'],0,1).'.':'')?></div>
 									<span><?=fun::user_staff_name($user_right['staff_id'], $lang)?></span>
 								</div>
-								<div class="ub1_lti lazy_img" data-src="https://lighterior.kz/assets/uploads/users/<?=$user['img']?>"><? if (!$user['img']): ?><i class="fal fa-user"></i><? endif ?></div>
+								<div class="ub1_lti lazy_img" data-src="/assets/uploads/users/<?=$user['img']?>"><? if (!$user['img']): ?><i class="fal fa-user"></i><? endif ?></div>
 							</div>
 							<div class="menu_c">
 								<a class="menu_ci" href="/">
