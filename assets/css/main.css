@@ -748,7 +748,7 @@ span.multis_i::after{display:none}
    .catalog{
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 15px 20px;
-      grid-gap: 15px;
+      grid-gap: 10px;
    }
 }
 
