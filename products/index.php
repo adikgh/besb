@@ -38,44 +38,14 @@
 									<!-- <div class="catalog_imgc2 lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img_f']?>"></div> -->
 								</a>
 								<div class="catalog_ic">
-									<div class="catalog_in"><?=$cat_d['name_ru']?></div>
-									<div class="catalog_ics">
-										<a class="catalog_icsi" href="cat/?id=<?=$cat_id?>">Показать все</a>
-										
-										<? $pod_cat = db::query("select * from product_catalog where parent_id = '$cat_id'"); ?>
-										<? if (mysqli_num_rows($pod_cat)): ?>
-											<? while ($pod_cat_d = mysqli_fetch_assoc($pod_cat)): ?>
-												<a class="catalog_icsi" href="cat/?id=<?=$pod_cat_d['id']?>">Pod cat 1</a>
-											<? endwhile ?>
-										<? endif ?>
-										
+									<div class="catalog_ic2">
+										<p><?=$cat_d['name_ru']?></p>
 									</div>
 								</div>
 							</div>
 						<? endwhile ?>
 					<? endif ?>
 					
-				</div>
-			</div>
-
-			<div class="ph_catq">
-				<div class="head_c head_c1">
-					<h5>Меню</h5>
-				</div>
-				<div class="ph_cat ddd_sd">
-
-					<? $catalog = db::query("select * from product_catalog"); ?>
-					<? if (mysqli_num_rows($catalog)): ?>
-						<? while ($cat_d = mysqli_fetch_assoc($catalog)): ?>
-							<a class="ph_cat_i" href="cat/?id=<?=$cat_d['id']?>">
-								<div class="ph_cat_in"><?=$cat_d['name_ru']?></div>
-								<div class="catalog_img" href="cat/?id=<?=$cat_id?>">
-									<div class="catalog_imgc lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img']?>"></div>
-								</div>
-							</a>
-						<? endwhile ?>
-					<? endif ?>
-
 				</div>
 			</div>
 

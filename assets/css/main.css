@@ -735,7 +735,7 @@ span.multis_i::after{display:none}
    position: relative;
    width: 100%;
 }
-@media(max-width:500px){.catq{display:none}}
+/* @media(max-width:500px){.catq{display:none}} */
 
 .catalog{
    position: relative;
@@ -744,10 +744,21 @@ span.multis_i::after{display:none}
    grid-template-columns: repeat(4, 1fr);
    grid-gap: 30px 60px;
 }
+@media (max-width: 500px) {
+   .catalog{
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 15px 20px;
+      grid-gap: 15px;
+   }
+}
+
+
 .catalog_i{
    position: relative;
    width: 100%;
-   padding-top: 45%;
+   /* padding-top: 45%; */
+   border-radius: 8px;
+   overflow: hidden;
 }
 .catalog_img{
    position: relative;
@@ -757,6 +768,8 @@ span.multis_i::after{display:none}
    position: absolute;
    top: 0;
    left: 0;
+   z-index: 11;
+   border-radius: 8px;
 }
 .catalog_imgc, .catalog_imgc2{
    position: absolute;
@@ -791,20 +804,57 @@ span.multis_i::after{display:none}
       position: relative;
       width: 100%;
    }
-
 }
 
 
 .catalog_ic{
-   position: relative;
+   position: absolute;
+   bottom: 10px;
+   right: 0;
    width: 100%;
-   margin-top: 20px;
+   z-index: 12;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
-.catalog_in{
+.catalog_ic2{
    position: relative;
-   width: 100%;
-   padding-bottom: 40%;
+   padding: 10px 15px;
+   display: inline-block;
 }
+
+.catalog_ic2::after{
+   border-radius: 8px; /* Скругленные углы */
+
+   position: absolute;
+   content: '';
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+   backdrop-filter: blur(10px); /* Размытие фона */
+   border: 1px solid rgba(255, 255, 255, 0.3); /* Легкая рамка */
+   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Тень для объема */
+   /* Дополнительные стили для позиционирования и контента */
+   /* padding: 20px; */
+   /* margin: 50px; */
+   z-index: 1;
+}
+
+.catalog_ic p{
+   position: relative;
+   z-index: 2;
+   /* color: var(--wh); */
+   font-weight: 600;
+   font-size: 18px;
+}
+
+
+
+
+/*  */
 .catalog_inc{
    position: absolute;
    top: 0;
@@ -821,19 +871,6 @@ span.multis_i::after{display:none}
    font-weight: 600;
    text-transform: uppercase;
    border-radius: 8px;
-}
-
-
-.catalog_ics{
-   position: relative;
-   width: 100%;
-   margin-top: 16px;
-}
-.catalog_icsi{
-   position: relative;
-   width: 100%;
-   display: block;
-   margin-bottom: 16px;
 }
 
 
@@ -1281,117 +1318,6 @@ span.multis_i::after{display:none}
 
 
 
-
-
-
-
-
-/*  */
-.ph_header_serach{
-   position: relative;
-   width: 100%;
-   margin-top: -44px;
-}
-
-
-
-
-
-/*  */
-.ph_catq{
-   position: relative;
-   width: 100%;
-   display: none;
-}
-@media(max-width:500px){.ph_catq{display:block}}
-
-.ph_cat{
-   position: relative;
-   width: 100%;
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   grid-gap: 20px;
-}
-.ph_cat_i{
-   position: relative;
-   width: 100%;
-   padding-bottom: 75%;
-   background: var(--gr1);
-   display: block;
-   box-sizing: border-box;
-   background-color: var(--gr1);
-   transition: .3s;
-}
-.ph_cat_in{
-   position: absolute;
-   top: 0;
-   left: 0;
-   padding: 20px;
-   font-size: 14px;
-   font-weight: 600;
-}
-.ph_cat_img{
-   position: absolute;
-   bottom: 0;
-   right: 0;
-   background-size: cover;
-   background-position: center center;
-   background-repeat: no-repeat;
-   display: flex;
-   align-items: center;
-   justify-items: center;
-   padding: 0 40px 40px 0;
-   font-size: 30px;
-}
-
-
-
-
-
-
-
-
-
-/*  */
-.ph_cat_i2{
-   position: relative;
-   /* width: 100%; */
-   padding-bottom: 75%;
-   background: var(--gr1);
-   display: block;
-   box-sizing: border-box;
-   background-color: var(--gr1);
-   transition: .3s;
-}
-.ph_cat_i2:first-child{
-   grid-column-start: 1;
-	grid-column-end: 3;
-   padding-bottom: 40%;
-}
-.ph_cat_i2:first-child .ph_cat_in{font-size:16px}
-
-.ph_cat_i2 .catalog_img{
-   padding-bottom: 0;
-}
-
-
-
-.ph_cat_i2:last-child{
-   grid-column-start: 1;
-	grid-column-end: 3;
-   height: 74px;
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 0 20px;
-}
-.ph_cat_i2:last-child .ph_cat_in, .ph_cat_i2:last-child .ph_cat_img{
-   position: relative;
-   display: inline-block;
-   padding: 0;
-   margin: 0;
-}
-.ph_cat_i2:last-child .ph_cat_img{font-size:20px}
 
 
 
