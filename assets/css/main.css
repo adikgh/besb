@@ -855,6 +855,7 @@ span.multis_i::after{display:none}
    /* color: var(--wh); */
    font-weight: 600;
    font-size: 18px;
+   text-align: center;
 }
 
 
