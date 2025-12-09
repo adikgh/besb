@@ -760,6 +760,12 @@ span.multis_i::after{display:none}
    border-radius: 8px;
    overflow: hidden;
 }
+
+.catalog_is2{
+   grid-column: 1 / -1;
+}
+
+
 .catalog_img{
    position: relative;
    display: block;
