@@ -609,12 +609,12 @@ span.multis_i::after{display:none}
    width: 100%;
    z-index: 989;
    background: var(--wh);
-   display: none;
    transition: .3s;
    top: 64px;
    height: 44px;
    border-top: 1px solid var(--gr1);
    position: absolute;
+   display: none;
 }
 .body_user .navh{
    top: 0;
@@ -780,8 +780,18 @@ span.multis_i::after{display:none}
 }
 .catalog_i:hover .catalog_imgc{opacity:0}
 .catalog_i:hover .catalog_imgc2{opacity:1}
-@media (max-width: 599px) {
+@media (max-width: 500px) {
    .catalog_i:hover .catalog_imgc2{opacity:0}
+
+   .ddd_sd .ph_cat_i{
+      padding-bottom: 0 !important;
+   }
+
+   .catalog_img, .ddd_sd .ph_cat_in{
+      position: relative;
+      width: 100%;
+   }
+
 }
 
 

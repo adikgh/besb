@@ -9,9 +9,9 @@
 	$menu_name = 'products';
 
 	$site_set['nav_header'] = true;
-   $site_set['nav_header_back'] = '/products/ph.php';
-   $site_set['nav_header_tr'] = 'item';
-   $site_set['nav_header_name'] = 'Категорий';
+	$site_set['nav_header_back'] = '/products/ph.php';
+	$site_set['nav_header_tr'] = 'item';
+	$site_set['nav_header_name'] = 'Категорий';
 
 	$css = ['product'];
 	$js = [];
@@ -35,7 +35,7 @@
 							<div class="catalog_i">
 								<a class="catalog_img" href="cat/?id=<?=$cat_id?>">
 									<div class="catalog_imgc lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img']?>"></div>
-									<div class="catalog_imgc2 lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img_f']?>"></div>
+									<!-- <div class="catalog_imgc2 lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img_f']?>"></div> -->
 								</a>
 								<div class="catalog_ic">
 									<div class="catalog_in"><?=$cat_d['name_ru']?></div>
@@ -62,14 +62,16 @@
 				<div class="head_c head_c1">
 					<h5>Меню</h5>
 				</div>
-				<div class="ph_cat">
+				<div class="ph_cat ddd_sd">
 
 					<? $catalog = db::query("select * from product_catalog"); ?>
 					<? if (mysqli_num_rows($catalog)): ?>
 						<? while ($cat_d = mysqli_fetch_assoc($catalog)): ?>
 							<a class="ph_cat_i" href="cat/?id=<?=$cat_d['id']?>">
 								<div class="ph_cat_in"><?=$cat_d['name_ru']?></div>
-								<div class="catalog_img"></div>
+								<div class="catalog_img" href="cat/?id=<?=$cat_id?>">
+									<div class="catalog_imgc lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img']?>"></div>
+								</div>
 							</a>
 						<? endwhile ?>
 					<? endif ?>

@@ -31,9 +31,9 @@
 	$menu_name = 'cat';
 
 	$site_set['nav_header'] = true;
-   $site_set['nav_header_back'] = '/';
-   $site_set['nav_header_tr'] = 'item';
-   $site_set['nav_header_name'] = 'Name 1';
+	$site_set['nav_header_back'] = '/';
+	$site_set['nav_header_tr'] = 'item';
+	$site_set['nav_header_name'] = 'Name 1';
 
 	$css = ['product'];
 	$js = [];
