@@ -54,31 +54,26 @@
 
 						<div class="item">
 							<div class="item_c">
-								<a href="../item/?id=<?=$item_d['id']?>">
-									<div class="item_img">
-										<? if ($item_d['img'] || $item_d['img_room']): ?>
-											<div class="item_img_c lazy_img" data-src="https://admin.lighterior.kz/assets/uploads/products/<?=$item_d['img']?>"></div>
-											<? if ($item_d['img_room']): ?> <div class="item_img_c item_img_abs lazy_img" data-src="https://admin.lighterior.kz/assets/uploads/products/<?=$item_d['img_room']?>"></div> <? endif ?>
-										<? else: ?> <div class="item_img_c"><span>Фото скоро появится</span></div> <? endif ?>
-									</div>
-								</a>
+								<div class="item_img">
+									<? if ($pr_d['img'] || $pr_d['img_room']): ?>
+										<div class="item_img_c lazy_img" data-src="/assets/uploads/products/<?=$pr_d['img']?>"></div>
+										<? if ($pr_d['img_room']): ?> <div class="item_img_c item_img_abs lazy_img" data-src="/assets/uploads/products/<?=$item_d['img_room']?>"></div> <? endif ?>
+									<? else: ?> <div class="item_img_c"><span>Фото скоро появится</span></div> <? endif ?>
+								</div>
 								<div class="item_cn">
-									<a href="../item/?id=<?=$item_d['id']?>">
-										<div class="item_con">
-											<div class="item_cons">
-												<div class="item_name"><?=$pr_d['name_ru']?></div>
-												<? if ($pr_d['brand_id']): ?> <div class="item_desc"><?=(product::pr_brand($pr_d['brand_id']))['name']?></div> <? endif ?>
-											</div>
-											<? if ($item_d['price']): ?>
-												<div class="item_price">
-													<? if ($designer): ?><span><?=($item_d['price'] - ($item_d['price'] / 10))?></span>
-													<? else: ?><span><?=$item_d['price']?></span><? endif ?>
-													<i class="fas fa-tenge"></i>
-												</div>
-											<? endif ?>
-											<div class=""></div>
+									<div class="item_con">
+										<div class="item_cons">
+											<div class="item_name"><?=$pr_d['name_ru']?></div>
+											<? if ($pr_d['brand_id']): ?> <div class="item_desc"><?=(product::pr_brand($pr_d['brand_id']))['name']?></div> <? endif ?>
 										</div>
-									</a>
+										<? if ($pr_d['price']): ?>
+											<div class="item_price">
+												<span><?=$pr_d['price']?></span>
+												<i class="fas fa-tenge"></i>
+											</div>
+										<? endif ?>
+										<div class=""></div>
+									</div>
 								</div>
 							</div>
 
