@@ -66,6 +66,114 @@ $(document).ready(function() {
 
 
 
+
+
+
+	// upd catalog
+
+	$("html").on('change', '.ct_img', function(){
+		tfile = $(this)
+		if (window.FormData === undefined) mess('Бұл формат келмейді')
+		else {
+			var formData = new FormData();
+			formData.append('file', $(this)[0].files[0]);
+			$.ajax({
+				url: "/admin/products/get.php?ct_img_add",
+				type: "POST",
+				crossDomain: true,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType: 'json',
+				data: formData,
+				success: function(msg){
+					if (msg.error == '') {
+						tfile_n = 'url(/assets/uploads/catalog/'+msg.file+')'
+						tfile.attr('data-val', msg.file)
+						tfile.siblings('.form_im_img').addClass('form_im_img2')
+						tfile.siblings('.form_im_img').css('background-image', tfile_n)
+					} else mess(msg.error)
+				},
+				beforeSend: function(){ },
+				error: function(msg){ }
+			});
+		}
+	});
+
+	$('.ct_upd_pop').click(function(){
+		$('.ct_upd_block').addClass('pop_bl_act');
+		$('#html').addClass('ovr_h');
+		btn = $(this)
+		$.ajax({
+			url: "/admin/products/catalog/upd.php?upd",
+			type: "POST",
+			dataType: "html",
+			data: ({ id: btn.attr('data-id'), }),
+			success: function(data){
+				$('.ct_upd_block .pop_bl_cl').html(data);
+			},
+			beforeSend: function(){ },
+			error: function(data){ }
+		})
+	})
+	$('.ct_upd_back').click(function(){
+		$('.ct_upd_block').removeClass('pop_bl_act');
+		$('#html').removeClass('ovr_h');
+		$('.ct_upd_block .pop_bl_cl').html('');
+	})
+
+
+	$('html').on('click', '.ct_upd_img_btn', function(){ $(this).siblings('.ct_upd_img').click() })
+
+
+	$('html').on('click', '.ct_upd', function() {
+		if ($('.ct_upd_name').val().length >= $('.ct_upd_name').data('length')) {
+			if ($('.ct_upd_name').val().length >= $('.ct_upd_name').data('length')) mess('Введите свой данный')
+		} else {
+			$.ajax({
+				url: "/admin/products/get.php?ct_upd",
+				type: "POST",
+				dataType: "html",
+				data: ({
+					id: $('.ct_upd').data('id'),
+					name: $('.ct_upd_name').attr('data-val'),
+					img: $('.ct_upd_img').attr('data-val'),
+				}),
+				success: function(data){
+					if (data == 'yes') {
+						mess('Успешно')
+						setTimeout(function() { location.reload(); }, 500);
+					} else mess('Ошибка!'); console.log(data);
+				},
+				beforeSend: function(){ mess('Отправка..') },
+				error: function(data){ }
+			})
+		}
+	})
+
+	// delete
+	$('html').on('click', '.ct_btn_delete', function() {
+		btn = $(this)
+		$.ajax({
+			url: "/admin/products/get.php?ct_delete",
+			type: "POST",
+			dataType: "html",
+			data: ({ id: btn.attr('data-id'), }),
+			success: function(data){
+				if (data == 'yes') {
+					mess('Успешно')
+					setTimeout(function() { location.reload(); }, 500);
+				} else mess('Ошибка!'); console.log(data);
+			},
+			beforeSend: function(){ },
+			error: function(data){ }
+		})
+	})
+
+
+
+
+
 	// search
 	$('.product_search').on('input', function () {
 		// $.ajax({

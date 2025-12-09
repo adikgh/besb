@@ -46,6 +46,10 @@
 		echo json_encode($data, JSON_UNESCAPED_UNICODE);
 		exit();
 	}
+
+
+
+
    
    
    // product_add
@@ -87,26 +91,21 @@
    // product arh
 	if(isset($_GET['product_delete'])) {
 		$id = strip_tags($_POST['id']);
-
-      // $upd = db::query("DELETE FROM `product_item_quantity` WHERE product_id = '$id'");
-      // $upd = db::query("DELETE FROM `product_item` WHERE product_id = '$id'");
 		$upd = db::query("UPDATE `product` SET arh = 1 WHERE id = '$id'");
-		$upd_item = db::query("UPDATE `product_item` SET arh = 1 WHERE product_id = '$id'");
-
-      if ($upd) echo 'yes'; else echo 'error';
-      exit();
+		if ($upd) echo 'yes'; else echo 'error';
+		exit();
 	}
 
-   // product_delete
+   	// product_delete
 	// if(isset($_GET['product_delete'])) {
 	// 	$id = strip_tags($_POST['id']);
 
-   //    $upd = db::query("DELETE FROM `product_item_quantity` WHERE product_id = '$id'");
-   //    $upd = db::query("DELETE FROM `product_item` WHERE product_id = '$id'");
-   //    $del = db::query("DELETE FROM `product` WHERE id = '$id'");
+  	//    $upd = db::query("DELETE FROM `product_item_quantity` WHERE product_id = '$id'");
+   	//    $upd = db::query("DELETE FROM `product_item` WHERE product_id = '$id'");
+   	//    $del = db::query("DELETE FROM `product` WHERE id = '$id'");
 
-   //    if ($del) echo 'yes'; else echo 'error';
-   //    exit();
+   	//    if ($del) echo 'yes'; else echo 'error';
+   	//    exit();
 	// }
 
 
@@ -149,5 +148,80 @@
       	if ($img) $upd = db::query("UPDATE `product` SET `img` = '$img', `upd_dt` = '$datetime' WHERE id = '$id'");
       
 		echo 'yes';
+		exit();
+	}
+
+
+
+
+
+
+
+
+
+
+	// 
+	if(isset($_GET['ct_img_add'])) {
+		$path = '../../assets/uploads/catalog/';
+		$allow = array();
+		$deny = array(
+			'phtml', 'php', 'php3', 'php4', 'php5', 'php6', 'php7', 'phps', 'cgi', 'pl', 'asp', 
+			'aspx', 'shtml', 'shtm', 'htaccess', 'htpasswd', 'ini', 'log', 'sh', 'js', 'html', 
+			'htm', 'css', 'sql', 'spl', 'scgi', 'fcgi', 'exe'
+		);
+		$error = $success = '';
+		$datetime = date('Ymd-His', time());
+
+		if (!isset($_FILES['file'])) $error = 'Файлды жүктей алмады';
+		else {
+			$file = $_FILES['file'];
+			if (!empty($file['error']) || empty($file['tmp_name'])) $error = 'Файлды жүктей алмады';
+			elseif ($file['tmp_name'] == 'none' || !is_uploaded_file($file['tmp_name'])) $error = 'Файлды жүктей алмады';
+			else {
+				$pattern = "[^a-zа-яё0-9,~!@#%^-_\$\?\(\)\{\}\[\]\.]";
+				$name = mb_eregi_replace($pattern, '-', $file['name']);
+				$name = mb_ereg_replace('[-]+', '-', $name);
+				$parts = pathinfo($name);
+				$name = $datetime.'-'.$name;
+
+				if (empty($name) || empty($parts['extension'])) $error = 'Файлды жүктей алмады';
+				elseif (!empty($allow) && !in_array(strtolower($parts['extension']), $allow)) $error = 'Файлды жүктей алмады';
+				elseif (!empty($deny) && in_array(strtolower($parts['extension']), $deny)) $error = 'Файлды жүктей алмады';
+				else {
+					if (move_uploaded_file($file['tmp_name'], $path . $name)) $success = '<p style="color: green">Файл «' . $name . '» успешно загружен.</p>';
+					else $error = 'Файлды жүктей алмады';
+				}
+			}
+		}
+		
+		if (!empty($error)) $error = '<p style="color:red">'.$error.'</p>';
+		$data = array(
+			'error'   => $error,
+			'success' => $success,
+			'file' => $name,
+		);
+		
+		header('Content-Type: application/json');
+		echo json_encode($data, JSON_UNESCAPED_UNICODE);
+		exit();
+	}
+
+	// pr_upd
+	if(isset($_GET['ct_upd'])) {
+		$id = strip_tags($_POST['id']);
+      	$name = strip_tags($_POST['name']);
+		$img = strip_tags($_POST['img']);
+
+      	if ($name) $upd = db::query("UPDATE `product_catalog` SET `name_kz` = '$name', `name_ru` = '$name' WHERE id = '$id'");
+      	if ($img) $upd = db::query("UPDATE `product_catalog` SET `img` = '$img' WHERE id = '$id'");
+      
+		echo 'yes';
+		exit();
+	}
+	// product arh
+	if(isset($_GET['ct_delete'])) {
+		$id = strip_tags($_POST['id']);
+		$upd = db::query("UPDATE `product_catalog` SET arh = 1 WHERE id = '$id'");
+		if ($upd) echo 'yes'; else echo 'error';
 		exit();
 	}
