@@ -68,7 +68,7 @@
 
    // setting
    $site = mysqli_fetch_array(db::query("select * from `site` where id = 1"));
-   $ver = 1.007;
+   $ver = 1.008;
    $site_set = [
       'header' => true,
       'menu' => true,

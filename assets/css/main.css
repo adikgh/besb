@@ -819,6 +819,7 @@ span.multis_i::after{display:none}
    right: 0;
    width: 100%;
    z-index: 12;
+   padding: 0 10px;
 
    display: flex;
    justify-content: center;
