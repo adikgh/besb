@@ -27,7 +27,7 @@
 				</div>
 				<div class="catalog">
 
-					<? $catalog = db::query("select * from product_catalog where arh is null"); ?>
+					<? $catalog = db::query("select * from product_catalog where company_id = 1 and arh is null"); ?>
 					<? if (mysqli_num_rows($catalog)): ?>
 						<? while ($cat_d = mysqli_fetch_assoc($catalog)): ?>
 							<? $cat_id = $cat_d['id']; ?>

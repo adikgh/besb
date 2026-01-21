@@ -25,7 +25,7 @@
                   </div>
                   <span>Категории</span>
                   <div class="menuc_cwim">
-                     <? $catalog = db::query("select * from product_catalog where arh is null and level = 1 order by number asc"); ?>
+                     <? $catalog = db::query("select * from product_catalog where company_id = 1 and arh is null"); ?>
                      <? if (mysqli_num_rows($catalog)): ?>
                         <? while ($cat_d = mysqli_fetch_assoc($catalog)): ?>
                            <? $menu_cat_id = $cat_d['id']; ?>
