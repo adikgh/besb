@@ -432,6 +432,7 @@
    position: relative;
    width: 100%;
    margin-bottom: 20px;
+   display: block;
 }
 .menuc_cwi2:first-child{margin-top:20px}
 .menuc_cwi2:last-child{margin-bottom:0}
