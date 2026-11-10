@@ -56,7 +56,7 @@
 							<div class="item_c">
 								<div class="item_img">
 									<? if ($pr_d['img'] || $pr_d['img_room']): ?>
-										<div class="item_img_c lazy_img" data-src="<?=fun::img($pr_d['img'], 'products')?>"></div>
+										<div class="item_img_c lazy_img" data-src="/assets/uploads/products/<?=$pr_d['img']?>"></div>
 										<? if ($pr_d['img_room']): ?> <div class="item_img_c item_img_abs lazy_img" data-src="/assets/uploads/products/<?=$item_d['img_room']?>"></div> <? endif ?>
 									<? else: ?> <div class="item_img_c"><span>Фото скоро появится</span></div> <? endif ?>
 								</div>
