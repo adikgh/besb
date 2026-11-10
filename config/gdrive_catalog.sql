@@ -1,4 +1,5 @@
 -- besb: category photos moved to Google Drive (folder Besb). Run once on the live DB.
+SET NAMES utf8mb4;
 UPDATE `product_catalog` SET `img` = '1jr2iHuSG_OuACUz3U07OoOcipMORflT7' WHERE `img` = '20251209-181946-WhatsApp-Image-2025-12-09-at-18.18.45.jpeg';
 UPDATE `product_catalog` SET `img` = '1StnX1s7f6G6TwO3lG_8VyVtW0YEgn5Yw' WHERE `img` = '20251226-140713-_DSC4307.JPG';
 UPDATE `product_catalog` SET `img` = '1T_tRDsXhNGhiX8dpYdBmwynKLHhOKq_J' WHERE `img` = '20251226-143414-_DSC4561.JPG';
