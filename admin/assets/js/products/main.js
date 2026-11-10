@@ -88,7 +88,7 @@ $(document).ready(function() {
 				data: formData,
 				success: function(msg){
 					if (msg.error == '') {
-						tfile_n = 'url(/assets/uploads/catalog/'+msg.file+')'
+						tfile_n = 'url('+msg.url+')'
 						tfile.attr('data-val', msg.file)
 						tfile.siblings('.form_im_img').addClass('form_im_img2')
 						tfile.siblings('.form_im_img').css('background-image', tfile_n)
@@ -303,7 +303,7 @@ $(document).ready(function() {
 				data: formData,
 				success: function(msg){
 					if (msg.error == '') {
-						tfile_n = 'url(/assets/uploads/products/'+msg.file+')'
+						tfile_n = 'url('+msg.url+')'
 						tfile.attr('data-val', msg.file)
 						tfile.siblings('.form_im_img').addClass('form_im_img2')
 						tfile.siblings('.form_im_img').css('background-image', tfile_n)
