@@ -64,7 +64,7 @@
 									</div>
 								</td>
 								<td class="td_img">
-									<div class="uc_ui_img lazy_img ct_upd_pop" data-src="<?=fun::img($pr_d['img'], 'catalog')?>" data-id="<?=$pr_d['id']?>">
+									<div class="uc_ui_img lazy_img ct_upd_pop" data-src="/assets/uploads/catalog/<?=$pr_d['img']?>" data-id="<?=$pr_d['id']?>">
 										<? if ($pr_d['img'] == null): ?> <i class="fal fa-box"></i> <? endif ?>
 									</div>
 								</td>

@@ -33,7 +33,7 @@
          <div class="form_c">
             <div class="form_im">
                <input type="file" class="file dsp_n product_img pr_upd_img" accept=".png, .jpeg, .jpg">
-               <div class="form_im_img pr_upd_img_btn <?=($product_d['img']?'form_im_img2':'')?>" data-txt="Обновить изображение" style="background-image: url('<?=fun::img($product_d['img'], 'products')?>')">Выберите с устройства</div>
+               <div class="form_im_img pr_upd_img_btn <?=($product_d['img']?'form_im_img2':'')?>" data-txt="Обновить изображение" style="background-image: url('/assets/uploads/products/<?=$product_d['img']?>')">Выберите с устройства</div>
             </div>
          </div>
 

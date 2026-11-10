@@ -34,8 +34,8 @@
 
 							<div class="catalog_i <?=($cat_d['attribute']=='100'?'catalog_is2':'')?> ?>">
 								<a class="catalog_img" href="cat/?id=<?=$cat_id?>">
-									<div class="catalog_imgc lazy_img" data-src="<?=fun::img($cat_d['img'], 'catalog')?>"></div>
-									<!-- <div class="catalog_imgc2 lazy_img" data-src="<?=fun::img($cat_d['img_f'], 'catalog')?>"></div> -->
+									<div class="catalog_imgc lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img']?>"></div>
+									<!-- <div class="catalog_imgc2 lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img_f']?>"></div> -->
 								</a>
 								<div class="catalog_ic">
 									<div class="catalog_ic2">

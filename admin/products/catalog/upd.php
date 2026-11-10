@@ -15,7 +15,7 @@
          <div class="form_c">
             <div class="form_im">
                <input type="file" class="file dsp_n ct_img ct_upd_img" accept=".png, .jpeg, .jpg">
-               <div class="form_im_img ct_upd_img_btn <?=($cats['img']?'form_im_img2':'')?>" data-txt="Обновить изображение" style="background-image: url('<?=fun::img($cats['img'], 'catalog')?>')">Выберите с устройства</div>
+               <div class="form_im_img ct_upd_img_btn <?=($cats['img']?'form_im_img2':'')?>" data-txt="Обновить изображение" style="background-image: url('/assets/uploads/catalog/<?=$cats['img']?>')">Выберите с устройства</div>
             </div>
          </div>
 

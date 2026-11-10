@@ -4,13 +4,6 @@ class fun {
 	
 	function __construct() {}
 
-	// Image URL: Google Drive id or a local file in /assets/uploads/$dir/
-	public static function img($name, $dir) {
-		if (!$name) return '';
-		if (preg_match('/^[\w-]{20,}$/', $name)) return 'https://lh3.googleusercontent.com/d/' . $name . '=w1000';
-		return '/assets/uploads/' . $dir . '/' . rawurlencode($name);
-	}
-
 
 
 

@@ -48,8 +48,8 @@
 						<? $cat_id = $cat_d['id']; ?>
 						<a class="catalog_i" href="/products/cat/?id=<?=$cat_id?>">
 							<div class="catalog_img">
-								<div class="catalog_imgc lazy_img" data-src="<?=fun::img($cat_d['img'], 'catalog')?>"></div>
-								<div class="catalog_imgc2 lazy_img" data-src="<?=fun::img($cat_d['img_f'], 'catalog')?>"></div>
+								<div class="catalog_imgc lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img']?>"></div>
+								<div class="catalog_imgc2 lazy_img" data-src="/assets/uploads/catalog/<?=$cat_d['img_f']?>"></div>
 							</div>
 							<div class="catalog_in">
 								<div class="catalog_inc"><?=$cat_d['name_ru']?></div>
